@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WAWASAN4D — Hubungan Digital Anda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
+  .swiper {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  display: block;
+}
+
+/* Warna tombol navigasi */
+.swiper-button-next, .swiper-button-prev {
+  color: #FFD700; /* Warna emas agar sesuai tema */
+}
   :root{
     --maroon:#3a0d10;
     --maroon-deep:#1c0507;
@@ -933,12 +952,23 @@
       </p>
     </div>
 
-    <div class="hero-right-content">
-      <div class="promo-image-frame">
-        <img src="gambar 3.jpg" alt="Promo WAWASAN4D">
+<div class="hero-right-content">
+  <div class="promo-image-frame">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="gambar 4.jpg" alt="Promo 1"></div>
+        <div class="swiper-slide"><img src="gambar 5.jpg" alt="Promo 2"></div>
+        <div class="swiper-slide"><img src="gambar 6.jpg" alt="Promo 3"></div>
+        <div class="swiper-slide"><img src="gambar 7.jpg" alt="Promo 4"></div>
       </div>
+      <!-- Tombol Navigasi Manual -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Indikator di bawah -->
+      <div class="swiper-pagination"></div>
     </div>
   </div>
+</div>
 
   <div class="info-card">
     <div class="running-text-container">
@@ -1106,6 +1136,26 @@
         popup.classList.remove('active');
       }
     });
+  });
+</script>
+  <script>
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    grabCursor: true, // Membuat kursor berubah jadi tangan saat di atas gambar
+    loop: true,       // Membuat slider berputar terus menerus
+    autoplay: {
+      delay: 3000,    // Ganti gambar setiap 3 detik
+      disableOnInteraction: false, // Tetap otomatis setelah digeser manual
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
 </script>
 
