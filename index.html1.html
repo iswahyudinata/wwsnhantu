@@ -1,1001 +1,1224 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WAWASAN4D — Hubungan Digital Anda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<style>
-  /* Bingkai Utama Kategori Game */
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAWASAN4D — Hubungan Digital Anda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== BINGKAI KATEGORI GAME ELEGAN & LUXURY ===== */
 .game-frame {
   background: linear-gradient(135deg, rgba(28, 5, 7, 0.9) 0%, rgba(15, 2, 4, 0.95) 100%);
-  border: 1.5px solid rgba(244, 200, 135, 0.4); /* Border emas transparan */
-  border-radius: 12px;
-  padding: 15px 20px;
-  margin: 20px 0;
-  display: inline-block;
+  border: 2px solid rgba(244, 200, 135, 0.3); /* Bingkai emas tipis */
+  border-radius: 16px;
+  padding: 20px;
+  margin: 30px 0;
   width: 100%;
-  max-width: 550px; /* Batas lebar agar rapi */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(244, 200, 135, 0.05);
-  position: relative;
-  transition: all 0.4s ease;
+  max-width: 650px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(244, 200, 135, 0.05);
 }
 
-/* Efek Glow pada Bingkai Saat Kursor Mengarah (Hover) */
-.game-frame:hover {
-  border-color: rgba(244, 200, 135, 0.8);
-  box-shadow: 0 0 20px rgba(244, 200, 135, 0.25), 0 8px 25px rgba(0, 0, 0, 0.6);
-}
-
-/* Susunan Item di Dalam Bingkai */
 .game-categories-badge {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Membagi 4 kolom sama rata */
+  gap: 12px;
 }
 
-/* Tombol Kategori Game */
 .game-categories-badge span {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
+  font-size: 1.25rem;
+  letter-spacing: 0.07em;
   color: #fff;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 8px 18px;
-  border-radius: 6px;
+  padding: 14px 10px;
+  border-radius: 10px;
   text-transform: uppercase;
-  flex: 1; /* Membuat ukuran kotak sama rata */
-  text-align: center;
-  min-width: 90px;
+  
+  /* Flexbox untuk memastikan ikon dan teks berada tepat di tengah secara presisi */
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Jarak antara emoji dan teks */
+  
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Efek Sorot Item saat Hover */
+/* Efek Hover yang Elegan dan Interaktif */
 .game-categories-badge span:hover {
-  color: #1c0507; /* Warna gelap teks saat aktif */
-  background: linear-gradient(135deg, #f4c887 0%, #d4af37 100%); /* Gradasi Emas */
-  border-color: #f4c887;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+  color: #1c0507;
+  background: linear-gradient(135deg, #f4c887 0%, #d4af37 100%);
+  border-color: #ffd700;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
   font-weight: bold;
 }
 
-/* Optimasi Tampilan HP (Mobile) */
-@media (max-width: 500px) {
+/* Responsif untuk Smartphone */
+@media (max-width: 600px) {
   .game-categories-badge {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Membagi jadi 2 baris 2 kolom di HP */
+    grid-template-columns: repeat(2, 1fr); /* Menjadi 2 baris 2 kolom di HP agar tidak sempit */
     gap: 10px;
   }
-  .game-frame {
-    padding: 12px;
-  }
-}
-  .swiper {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.swiper-slide img {
-  width: 100%;
-  display: block;
-}
-
-/* Warna tombol navigasi */
-.swiper-button-next, .swiper-button-prev {
-  color: #FFD700; /* Warna emas agar sesuai tema */
-}
-  :root{
-    --maroon:#3a0d10;
-    --maroon-deep:#1c0507;
-    --maroon-toolbar:#2a0608; 
-    --red:#a3151d;
-    --red-bright:#e8232f;
-    --gold:#f4c887;
-    --gold-deep:#c99a5c;
-    --bone:#f6ede0;
-    --bone-dim:#c9b9a8;
-    --line:rgba(246,237,224,0.14);
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body{
-    background:var(--maroon-deep);
-    color:var(--bone);
-    font-family:'Inter',sans-serif;
-    overflow-x:hidden;
-  }
-
-  /* ambient glow layers */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-      radial-gradient(ellipse 700px 500px at 20% 10%, rgba(232,35,47,0.25), transparent 60%),
-      radial-gradient(ellipse 800px 600px at 90% 80%, rgba(163,21,29,0.22), transparent 60%);
-    pointer-events:none;
-    z-index:0;
-  }
-
-  /* ===== TOOLBAR HEADER ===== */
-  header{
-    position:fixed;
-    top:0;left:0;right:0;
-    z-index:200;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:14px 6%;
-    background: linear-gradient(180deg, var(--maroon-toolbar) 0%, #1e0305 100%);
-    border-bottom: 2px solid rgba(244, 200, 135, 0.2); 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-  }
-
-  .brand-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .brand{
-    font-family:'Anton',sans-serif;
-    font-size:2.3rem; 
-    font-weight:900;
-    letter-spacing:0.04em;
-    color: var(--bone);
-    text-shadow: 0 0 15px rgba(244, 200, 135, 0.3);
-  }
-  .brand span{color:var(--gold);}
-  
-  nav ul{
-    display:flex;
-    gap:16px;
-    list-style:none;
-    align-items:center;
-  }
-  
-  nav a{
-    color:var(--bone);
-    text-decoration:none;
-    font-size:0.85rem;
-    font-weight:700;
-    letter-spacing:0.08em;
-    padding:8px 20px;
-    border-radius:4px;
-    transition:all .25s ease;
-    border:1px solid transparent;
-  }
-  
-  nav a.nav-link{
-    border-color: rgba(244,200,135,0.3);
-    background: rgba(58,13,16,0.4);
-  }
-  nav a.nav-link:hover{
-    color:var(--maroon-deep);
-    background:var(--gold);
-    border-color:var(--gold);
-  }
-  
-  nav a.nav-btn-highlight{
-    background: linear-gradient(120deg, var(--red-bright), var(--red));
-    border-color: var(--red-bright);
-    box-shadow: 0 0 15px rgba(232,35,47,0.4);
-  }
-  nav a.nav-btn-highlight:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(232,35,47,0.7);
-  }
-
-  /* ===== HERO LAYOUT ===== */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:150px 6% 60px; 
-    z-index:2;
-  }
-
-  .hero-main-layout {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 40px;
-    align-items: center;
-    width: 100%;
-  }
-
-  .hero-left-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ===== CTA ROW DIATAS TITLE ===== */
-  .quick-access-tag {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.95rem;
-    color: var(--gold);
-    letter-spacing: 0.18em;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .quick-access-tag::after {
-    content: '';
-    height: 1px;
-    width: 50px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-    display: inline-block;
-  }
-
-  .cta-row{
-    margin-bottom: 30px; 
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content: center;
-    gap:10px;
-    padding:14px 28px;
-    font-weight:800;
-    font-size:0.85rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    text-decoration:none;
-    border-radius:6px;
-    transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor:pointer;
-    border:1px solid transparent;
-  }
-
-  .btn-primary{
-    background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 100%);
-    color:var(--bone);
-    border: 1px solid var(--red-bright);
-    box-shadow: 0 0 15px rgba(232, 35, 47, 0.4);
-    animation: glowPulse 2s infinite alternate;
-  }
-  .btn-primary:hover{
-    box-shadow: 0 0 30px rgba(232, 35, 47, 0.8);
-    transform: translateY(-3px) scale(1.03);
-  }
-
-  @keyframes glowPulse {
-    0% { box-shadow: 0 0 12px rgba(232, 35, 47, 0.4); }
-    100% { box-shadow: 0 0 24px rgba(232, 35, 47, 0.8); }
-  }
-
-  .btn-ghost{
-    border: 2px solid var(--gold);
-    color:var(--gold);
-    background: rgba(58, 13, 16, 0.4);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
-  .btn-ghost:hover{
-    background:var(--gold);
-    color:var(--maroon-deep);
-    box-shadow: 0 0 20px rgba(244, 200, 135, 0.5);
-    transform: translateY(-3px) scale(1.03);
-  }
-
-  /* TITLE UTAMA */
-  .hero h1{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(3rem, 7.5vw, 7.5rem);
-    line-height:1;
-    color:var(--gold);
-    text-shadow:0 0 60px rgba(244,200,135,0.4);
-    letter-spacing: 0.02em;
-  }
-
-  /* SLOGAN */
-  .hero .signature {
-    margin-top: 20px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.85rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: transparent;
-    background: linear-gradient(90deg, #ffd700 0%, #ffffff 50%, #ffd700 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: goldShimmerEffect 4s linear infinite;
-  }
-
-  @keyframes goldShimmerEffect {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-  }
-
-  /* DESKRIPSI */
-  .hero-sub{
-    margin-top:28px;
-    max-width:580px;
-    font-size:1.15rem;
-    line-height:1.8;
-    color:var(--bone-dim);
-  }
-
-  /* ===== BINGKAI GAMBAR DI KANAN SEJAJAR TITLE ===== */
-  .hero-right-content {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-  }
-
-  .promo-image-frame {
-    width: 100%;
-    max-width: 480px;
-    position: relative;
-    border-radius: 12px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid transparent;
-    background-image: linear-gradient(rgba(28, 5, 7, 0.95), rgba(28, 5, 7, 0.95)), 
-                      linear-gradient(135deg, #ffd700, #b8860b, #ffffff, #ffd700, #c99a5c);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    box-shadow: 0 0 25px rgba(244, 200, 135, 0.25), 0 15px 35px rgba(0, 0, 0, 0.8);
-    overflow: hidden;
-    transition: all 0.4s ease;
-  }
-
-  .promo-image-frame img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .promo-image-frame:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 35px rgba(244, 200, 135, 0.45), 0 20px 45px rgba(0, 0, 0, 0.9);
-  }
-
-  .promo-image-frame:hover img {
-    transform: scale(1.02);
-  }
-
-  .promo-image-frame::before, .promo-image-frame::after {
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--gold);
-    pointer-events: none;
-    z-index: 10;
-  }
-  .promo-image-frame::before { top: 6px; left: 6px; border-right: none; border-bottom: none; }
-  .promo-image-frame::after { bottom: 6px; right: 6px; border-left: none; border-top: none; }
-
-  /* ===== RUNNING TEXT ===== */
-  .info-card {
-    margin-top: 45px;
-    display: flex;
-    align-items: stretch;
-    background: var(--bone);
-    border-radius: 6px;
-    overflow: hidden;
-    width: 100%;
-    min-height: 65px;
-    border: 3px solid transparent;
-    background-image: linear-gradient(var(--bone), var(--bone)), 
-                      linear-gradient(135deg, #ffd700, var(--gold-deep), #fff, var(--gold));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    box-shadow: 0 0 20px rgba(244, 200, 135, 0.4), 0 10px 30px rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease;
-  }
-
-  .running-text-container {
-    padding: 0 !important;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .marquee-wrapper {
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .marquee-content {
-    display: flex;
-    white-space: nowrap;
-    gap: 60px;
-    padding-left: 20px;
-    animation: bankMarquee 25s linear infinite;
-  }
-
-  .marquee-content span {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: 0.05em;
-  }
-
-  @keyframes bankMarquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* ===== BINGKAI INFORMASI DI BAWAH RUNNING TEXT ===== */
-  .promo-info-box {
-    margin-top: 30px;
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid transparent;
-    background-image: linear-gradient(rgba(28, 5, 7, 0.95), rgba(58, 13, 16, 0.95)), 
-                      linear-gradient(135deg, #ffd700, var(--gold-deep), #ffd700);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    box-shadow: 0 0 15px rgba(244, 200, 135, 0.15), 
-                0 10px 25px rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease;
-  }
-
-  .info-tag {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    margin-bottom: 6px;
-    display: inline-block;
-    background: rgba(163, 21, 29, 0.4);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(244, 200, 135, 0.15);
-    width: fit-content;
-  }
-
-  .info-title {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.35rem;
-    color: var(--bone);
-    margin-bottom: 8px;
-    line-height: 1.2;
-    letter-spacing: 0.03em;
-  }
-  
-  .info-title span {
-    color: var(--red-bright);
-  }
-
-  .info-desc {
-    font-size: 0.85rem;
-    color: var(--bone-dim);
-    line-height: 1.5;
-  }
-
-  /* ===== STRIPE DIVIDER ZEBRA ===== */
-  .stripe-divider {
-    height: 40px;
-    width: 100%;
-    background: repeating-linear-gradient(
-      -45deg,
-      #9c1218 0px,
-      #9c1218 20px,
-      #130305 20px,
-      #130305 40px
-    );
-    background-size: 56px 56px;
-    box-shadow: inset 0 5px 15px rgba(0,0,0,0.8), inset 0 -5px 15px rgba(0,0,0,0.8);
-    animation: moveStripe 10s linear infinite;
-    position: relative;
-    z-index: 10;
-    border-top: 1px solid rgba(244,200,135,0.15);
-    border-bottom: 1px solid rgba(244,200,135,0.15);
-  }
-
-  @keyframes moveStripe {
-    from { background-position: 0 0; }
-    to { background-position: 224px 0; }
-  }
-
-
-  /* ===================================================
-     ===== SECTION BARU: BONUS & PROMOSI TERBAIK ======
-     =================================================== */
-  .bonus-section {
-    position: relative;
-    padding: 100px 6%;
-    background: linear-gradient(180deg, #130305 0%, #200407 100%);
-    z-index: 11;
-  }
-
-  .section-title {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .section-title h2 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    color: var(--gold);
-    letter-spacing: 0.03em;
-    text-shadow: 0 0 30px rgba(244,200,135,0.25);
-  }
-
-  .section-title p {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.15em;
-    color: var(--red-bright);
-    margin-top: 10px;
-  }
-
-  .bonus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .bonus-card {
-    position: relative;
-    border-radius: 12px;
-    padding: 30px 24px;
-    background: linear-gradient(145deg, #23060a 0%, #150204 100%);
-    border: 1px solid rgba(244, 200, 135, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 380px;
-  }
-
-  /* Efek Glow Border saat Hover */
-  .bonus-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(135deg, #ffd700, #e8232f, transparent, #ffd700);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .bonus-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(232, 35, 47, 0.3);
-    border-color: transparent;
-  }
-
-  .bonus-card:hover::before {
-    opacity: 1;
-  }
-
-  .bonus-tag {
-    font-family: 'Bebas Neue', sans-serif;
+  .game-categories-badge span {
     font-size: 1.1rem;
-    color: var(--gold);
-    background: rgba(163, 21, 29, 0.5);
-    padding: 4px 12px;
-    border-radius: 5px;
-    width: fit-content;
-    border: 1px solid rgba(244, 200, 135, 0.2);
-    letter-spacing: 0.1em;
+    padding: 12px 8px;
   }
+}
+    /* Pengaturan khusus Slider Sports */
+.swiper-sports {
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 30px !important;
+}
 
-  .bonus-value {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: #fff;
-    line-height: 1.1;
-    margin: 20px 0 10px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  }
+.sports-pagination .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
 
-  .bonus-value span {
-    color: var(--red-bright);
-    display: block;
-    font-size: 1.5rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-  }
+.sports-pagination .swiper-pagination-bullet-active {
+  background: #ffffff !important;
+  width: 20px !important;
+  border-radius: 4px !important;
+}
 
-  .bonus-desc {
-    font-size: 0.9rem;
-    color: var(--bone-dim);
-    line-height: 1.6;
-    margin-bottom: 25px;
-  }
+/* Indikator Live Menit */
+.match-live-indicator {
+  color: #ffd700;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 
-  .bonus-btn {
-    width: 100%;
-    padding: 12px;
-    text-align: center;
-    background: transparent;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #e8232f;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blinkLive 1s infinite alternate;
+}
 
-  .bonus-card:hover .bonus-btn {
-    background: var(--gold);
-    color: var(--maroon-deep);
-    box-shadow: 0 0 15px rgba(244, 200, 135, 0.4);
-  }
+@keyframes blinkLive {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 8px #e8232f; }
+}
+    .swiper {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+    }
 
+    .swiper-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
 
-  /* ===================================================
-     ===== SECTION BARU: KEUNGGULAN FITUR LAYANAN ======
-     =================================================== */
-  .features-section {
-    padding: 100px 6%;
-    background: #0f0203;
-    position: relative;
-    z-index: 11;
-    border-top: 1px solid rgba(244, 200, 135, 0.08);
-  }
+    :root {
+      --maroon: #3a0d10;
+      --maroon-deep: #1c0507;
+      --maroon-toolbar: #2a0608; 
+      --red: #a3151d;
+      --red-bright: #e8232f;
+      --gold: #f4c887;
+      --gold-deep: #c99a5c;
+      --bone: #f6ede0;
+      --bone-dim: #c9b9a8;
+      --line: rgba(246,237,224,0.14);
+    }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .feature-item {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(28, 5, 7, 0.5);
-    border-radius: 8px;
-    border-bottom: 3px solid var(--red);
-    transition: all 0.3s ease;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .feature-item:hover {
-    background: rgba(58, 13, 16, 0.3);
-    transform: translateY(-5px);
-    border-bottom-color: var(--gold);
-  }
+    body {
+      background: var(--maroon-deep);
+      color: var(--bone);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
 
-  .feature-icon {
-    font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 700px 500px at 20% 10%, rgba(232,35,47,0.25), transparent 60%),
+        radial-gradient(ellipse 800px 600px at 90% 80%, rgba(163,21,29,0.22), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  .feature-title {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.05em;
-    color: #fff;
-    margin-bottom: 12px;
-  }
+    /* ===== TOOLBAR HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 6%;
+      background: linear-gradient(180deg, var(--maroon-toolbar) 0%, #1e0305 100%);
+      border-bottom: 2px solid rgba(244, 200, 135, 0.2); 
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
 
-  .feature-desc {
-    font-size: 0.85rem;
-    color: var(--bone-dim);
-    line-height: 1.6;
-  }
+    /* KODE LOGO BARU */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 5px 0;
+    }
 
+    .main-logo {
+      height: 55px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0px 2px 8px rgba(255, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+    }
 
-  /* ===================================================
-     ===== SECTION BARU: LIVE CHAT / CUSTOMER SERVICE ===
-     =================================================== */
-  .contact-section {
-    padding: 80px 6%;
-    background: linear-gradient(180deg, #0f0203 0%, #1c0507 100%);
-    text-align: center;
-    position: relative;
-    z-index: 11;
-  }
+    .main-logo:hover {
+      transform: scale(1.03);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav a {
+      color: var(--bone);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 8px 20px;
+      border-radius: 4px;
+      transition: all .25s ease;
+      border: 1px solid transparent;
+    }
+    
+    nav a.nav-link {
+      border-color: rgba(244,200,135,0.3);
+      background: rgba(58,13,16,0.4);
+    }
+    nav a.nav-link:hover {
+      color: var(--maroon-deep);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    
+    nav a.nav-btn-highlight {
+      background: linear-gradient(120deg, var(--red-bright), var(--red));
+      border-color: var(--red-bright);
+      box-shadow: 0 0 15px rgba(232,35,47,0.4);
+    }
+    nav a.nav-btn-highlight:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(232,35,47,0.7);
+    }
 
-  .contact-box {
-    max-width: 800px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, rgba(58, 13, 16, 0.6) 0%, rgba(28, 5, 7, 0.8) 100%);
-    border: 2px solid rgba(244, 200, 135, 0.15);
-    border-radius: 16px;
-    padding: 50px 30px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-  }
+    /* ===== HERO LAYOUT ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 150px 6% 60px; 
+      z-index: 2;
+    }
 
-  .contact-box h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: 2.2rem;
-    color: var(--gold);
-    margin-bottom: 15px;
-    letter-spacing: 0.02em;
-  }
+    .hero-main-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
 
-  .contact-box p {
-    font-size: 1.05rem;
-    color: var(--bone-dim);
-    line-height: 1.7;
-    margin-bottom: 35px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .hero-left-content {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+    .quick-access-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .quick-access-tag::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      display: inline-block;
+    }
 
-  .btn-contact {
-    padding: 15px 40px;
-    font-weight: 800;
-    font-size: 0.9rem;
-    border-radius: 50px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-  }
+    .cta-row {
+      margin-bottom: 30px; 
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-  .btn-livechat {
-    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-    color: #fff;
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-  }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
 
-  .btn-livechat:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-  }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 100%);
+      color: var(--bone);
+      border: 1px solid var(--red-bright);
+      box-shadow: 0 0 15px rgba(232, 35, 47, 0.4);
+      animation: glowPulse 2s infinite alternate;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(232, 35, 47, 0.8);
+      transform: translateY(-3px) scale(1.03);
+    }
 
-  .btn-telegram {
-    background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
-    color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
-  }
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 12px rgba(232, 35, 47, 0.4); }
+      100% { box-shadow: 0 0 24px rgba(232, 35, 47, 0.8); }
+    }
 
-  .btn-telegram:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
-  }
+    .btn-ghost {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      background: rgba(58, 13, 16, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .btn-ghost:hover {
+      background: var(--gold);
+      color: var(--maroon-deep);
+      box-shadow: 0 0 20px rgba(244, 200, 135, 0.5);
+      transform: translateY(-3px) scale(1.03);
+    }
 
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(3rem, 7.5vw, 7.5rem);
+      line-height: 1;
+      color: var(--gold);
+      text-shadow: 0 0 60px rgba(244,200,135,0.4);
+      letter-spacing: 0.02em;
+    }
 
-  /* ===================================================
-     ===== FOOTER LAYOUT BARU ==========================
-     =================================================== */
-  footer {
-    background: #090102;
-    padding: 50px 6% 30px;
-    text-align: center;
-    border-top: 1px solid rgba(244,200,135,0.05);
-    position: relative;
-    z-index: 11;
-  }
+    .hero .signature {
+      margin-top: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: transparent;
+      background: linear-gradient(90deg, #ffd700 0%, #ffffff 50%, #ffd700 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmerEffect 4s linear infinite;
+    }
 
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-  }
+    @keyframes goldShimmerEffect {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
 
-  .footer-links a {
-    color: var(--bone-dim);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
+    /* ===== KODE BINGKAI BARU KATEGORI GAME ===== */
+    .game-frame {
+      background: linear-gradient(135deg, rgba(28, 5, 7, 0.9) 0%, rgba(15, 2, 4, 0.95) 100%);
+      border: 1.5px solid rgba(244, 200, 135, 0.4);
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin: 25px 0 10px 0;
+      display: inline-block;
+      width: 100%;
+      max-width: 550px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(244, 200, 135, 0.05);
+      position: relative;
+      transition: all 0.4s ease;
+    }
 
-  .footer-links a:hover {
-    color: var(--gold);
-  }
+    .game-frame:hover {
+      border-color: rgba(244, 200, 135, 0.8);
+      box-shadow: 0 0 20px rgba(244, 200, 135, 0.25), 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
 
-  .footer-copyright {
-    font-size: 0.8rem;
-    color: rgba(246, 237, 224, 0.35);
-    letter-spacing: 0.05em;
-  }
+    .game-categories-badge {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
+    .game-categories-badge span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      flex: 1;
+      text-align: center;
+      min-width: 90px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
 
-  /* ===================================================
-     ===== CODING POP-UP PROMO EMAS WAWASAN4D NEW ======
-     =================================================== */
-  .popup-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(19, 3, 5, 0.85); 
-    backdrop-filter: blur(8px); 
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out;
-  }
+    .game-categories-badge span:hover {
+      color: #1c0507;
+      background: linear-gradient(135deg, #f4c887 0%, #d4af37 100%);
+      border-color: #f4c887;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+      font-weight: bold;
+    }
 
-  /* Class aktif untuk menampilkan pop-up */
-  .popup-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+    .hero-sub {
+      margin-top: 20px;
+      max-width: 580px;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--bone-dim);
+    }
 
-  .popup-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px; 
-    background: var(--maroon-deep);
-    border-radius: 16px;
-    padding: 8px;
-    border: 3px solid transparent;
-    background-image: linear-gradient(var(--maroon-deep), var(--maroon-deep)), 
-                      linear-gradient(135deg, #ffd700, #b8860b, #ffffff, #ffd700);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    box-shadow: 0 0 50px rgba(244, 200, 135, 0.45), 0 25px 60px rgba(0, 0, 0, 0.9);
-    transform: scale(0.7);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
+    .hero-right-content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+    }
 
-  .popup-overlay.active .popup-container {
-    transform: scale(1);
-  }
+    .promo-image-frame {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid transparent;
+      background-image: linear-gradient(rgba(28, 5, 7, 0.95), rgba(28, 5, 7, 0.95)), 
+                        linear-gradient(135deg, #ffd700, #b8860b, #ffffff, #ffd700, #c99a5c);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: 0 0 25px rgba(244, 200, 135, 0.25), 0 15px 35px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
 
-  /* Tombol Close silang mewah */
-  .popup-close-btn {
-    position: absolute;
-    top: -18px;
-    right: -18px;
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--red-bright), var(--red));
-    border: 2px solid var(--gold);
-    color: var(--bone);
-    font-size: 22px;
-    font-weight: 700;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px rgba(232, 35, 47, 0.6);
-    transition: all 0.2s ease;
-    z-index: 10001;
-  }
+    .promo-image-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
 
-  .popup-close-btn:hover {
-    transform: scale(1.1) rotate(90deg);
-    background: var(--gold);
-    color: var(--maroon-deep);
-  }
+    .promo-image-frame:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px rgba(244, 200, 135, 0.45), 0 20px 45px rgba(0, 0, 0, 0.9);
+    }
 
-  /* Isi konten di dalam Pop-up */
-  .popup-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 10px;
-  }
+    .promo-image-frame:hover img {
+      transform: scale(1.02);
+    }
 
-  .popup-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  }
+    .promo-image-frame::before, .promo-image-frame::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--gold);
+      pointer-events: none;
+      z-index: 10;
+    }
+    .promo-image-frame::before { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+    .promo-image-frame::after { bottom: 6px; right: 6px; border-left: none; border-top: none; }
 
-  /* Tombol Khusus di dalam Pop-up */
-  .popup-action-btn {
-    width: 100%;
-    background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 100%);
-    color: var(--bone);
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 1rem;
-    letter-spacing: 0.08em;
-    border-radius: 8px;
-    border: 1px solid var(--gold);
-    box-shadow: 0 4px 15px rgba(232, 35, 47, 0.4);
-    transition: all 0.3s ease;
-  }
+    /* ===== KODE BINGKAI BARU RUNNING TEXT (BANK & E-WALLET) ===== */
+    .marquee-frame {
+      background: linear-gradient(135deg, rgba(42, 6, 8, 0.95), rgba(28, 5, 7, 0.95));
+      border: 1.5px solid var(--gold);
+      border-radius: 30px;
+      padding: 12px 20px;
+      margin: 45px 0 20px 0;
+      box-shadow: 0 0 15px rgba(244, 200, 135, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
 
-  .popup-action-btn:hover {
-    box-shadow: 0 0 25px rgba(232, 35, 47, 0.8);
-    transform: translateY(-2px);
-  }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
 
-  /* KONDISI RESPONSIF */
-  @media (max-width: 992px){
-    .hero-main-layout { grid-template-columns: 1fr; gap: 40px; }
-    .hero-right-content { justify-content: center; }
-    .promo-image-frame { max-width: 100%; }
-  }
+    .marquee-content {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--bone);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding-left: 100%;
+      animation: marquee-speed 25s linear infinite;
+    }
 
-  @media (max-width: 768px){
-    header{ padding:10px 4%; }
-    .brand { font-size: 1.8rem; } 
-    nav ul{ gap:8px; }
-    nav a{ font-size:0.75rem; padding:6px 12px; }
-    .cta-row { justify-content: center; }
-    .quick-access-tag { justify-content: center; }
-    .info-card{ min-height: 55px; border-width: 2px; }
-    .marquee-content span { font-size: 0.85rem; }
-    .stripe-divider { height: 30px; }
-    .popup-container { max-width: 90%; }
-    .popup-close-btn { top: -12px; right: -12px; width: 32px; height: 32px; font-size: 18px; }
-  }
-</style>
+    .marquee-content span {
+      color: var(--gold);
+    }
+
+    @keyframes marquee-speed {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    .marquee-frame:hover {
+      border-color: #fff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    /* ===== BINGKAI INFORMASI DI BAWAH RUNNING TEXT ===== */
+    .promo-info-box {
+      margin-top: 15px;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 2px solid transparent;
+      background-image: linear-gradient(rgba(28, 5, 7, 0.95), rgba(58, 13, 16, 0.95)), 
+                        linear-gradient(135deg, #ffd700, var(--gold-deep), #ffd700);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: 0 0 15px rgba(244, 200, 135, 0.15), 0 10px 25px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    .info-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+      display: inline-block;
+      background: rgba(163, 21, 29, 0.4);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(244, 200, 135, 0.15);
+      width: fit-content;
+    }
+
+    .info-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.35rem;
+      color: var(--bone);
+      margin-bottom: 8px;
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+    }
+    
+    .info-title span {
+      color: var(--red-bright);
+    }
+
+    .info-desc {
+      font-size: 0.85rem;
+      color: var(--bone-dim);
+      line-height: 1.5;
+    }
+
+    /* ===== KODE BARU WIDGET SKOR OLAHRAGA ===== */
+    .sports-widget-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      margin: 40px auto 10px auto;
+    }
+
+    .match-card {
+      background: linear-gradient(135deg, #181818 0%, #121212 100%);
+      background-image: linear-gradient(45deg, #151515 25%, transparent 25%), 
+                        linear-gradient(-45deg, #151515 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #151515 75%), 
+                        linear-gradient(-45deg, transparent 75%, #151515 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      border: 1.5px solid rgba(244, 200, 135, 0.3);
+      border-radius: 20px;
+      padding: 25px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+
+    .tournament-title {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #ffffff;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+    }
+
+    .match-time {
+      color: #ffd700;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    .match-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .team-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .team-flag {
+      width: 65px;
+      height: 65px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .team-flag img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .team-name {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .odds-value {
+      font-size: 0.95rem;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .odds-sub {
+      color: #aaa;
+      font-weight: normal;
+      margin-left: 5px;
+    }
+
+    .font-gold { color: #f4c887; }
+    .font-yellow { color: #ffd700; }
+
+    .score-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .live-score {
+      font-family: 'Anton', sans-serif;
+      color: #ffffff;
+      font-size: 2.5rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .btn-bet-now {
+      display: inline-block;
+      background: linear-gradient(185deg, #ffd700 0%, #d4af37 100%);
+      color: #1c0507;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      padding: 8px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-bet-now:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    }
+
+    .match-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.active {
+      background: #ffffff;
+      width: 18px;
+      border-radius: 4px;
+    }
+
+    /* ===== STRIPE DIVIDER ZEBRA ===== */
+    .stripe-divider {
+      height: 40px;
+      width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        #9c1218 0px,
+        #9c1218 20px,
+        #130305 20px,
+        #130305 40px
+      );
+      background-size: 56px 56px;
+      box-shadow: inset 0 5px 15px rgba(0,0,0,0.8), inset 0 -5px 15px rgba(0,0,0,0.8);
+      animation: moveStripe 10s linear infinite;
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid rgba(244,200,135,0.15);
+      border-bottom: 1px solid rgba(244,200,135,0.15);
+    }
+
+    @keyframes moveStripe {
+      from { background-position: 0 0; }
+      to { background-position: 224px 0; }
+    }
+
+    /* ===== SECTION: BONUS & PROMOSI TERBAIK ====== */
+    .bonus-section {
+      position: relative;
+      padding: 100px 6%;
+      background: linear-gradient(180deg, #130305 0%, #200407 100%);
+      z-index: 11;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: var(--gold);
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 30px rgba(244,200,135,0.25);
+    }
+
+    .section-title p {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.15em;
+      color: var(--red-bright);
+      margin-top: 10px;
+    }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bonus-card {
+      position: relative;
+      border-radius: 12px;
+      padding: 30px 24px;
+      background: linear-gradient(145deg, #23060a 0%, #150204 100%);
+      border: 1px solid rgba(244, 200, 135, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+    }
+
+    .bonus-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 2px;
+      background: linear-gradient(135deg, #ffd700, #e8232f, transparent, #ffd700);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .bonus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(232, 35, 47, 0.3);
+      border-color: transparent;
+    }
+
+    .bonus-card:hover::before {
+      opacity: 1;
+    }
+
+    .bonus-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      background: rgba(163, 21, 29, 0.5);
+      padding: 4px 12px;
+      border-radius: 5px;
+      width: fit-content;
+      border: 1px solid rgba(244, 200, 135, 0.2);
+      letter-spacing: 0.1em;
+    }
+
+    .bonus-value {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: #fff;
+      line-height: 1.1;
+      margin: 20px 0 10px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .bonus-value span {
+      color: var(--red-bright);
+      display: block;
+      font-size: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+    }
+
+    .bonus-desc {
+      font-size: 0.9rem;
+      color: var(--bone-dim);
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .bonus-btn {
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bonus-card:hover .bonus-btn {
+      background: var(--gold);
+      color: var(--maroon-deep);
+      box-shadow: 0 0 15px rgba(244, 200, 135, 0.4);
+    }
+
+    /* ===== SECTION: KEUNGGULAN FITUR LAYANAN ====== */
+    .features-section {
+      padding: 100px 6%;
+      background: #0f0203;
+      position: relative;
+      z-index: 11;
+      border-top: 1px solid rgba(244, 200, 135, 0.08);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(28, 5, 7, 0.5);
+      border-radius: 8px;
+      border-bottom: 3px solid var(--red);
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      background: rgba(58, 13, 16, 0.3);
+      transform: translateY(-5px);
+      border-bottom-color: var(--gold);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 0.85rem;
+      color: var(--bone-dim);
+      line-height: 1.6;
+    }
+
+    /* ===== SECTION: LIVE CHAT / CUSTOMER SERVICE === */
+    .contact-section {
+      padding: 80px 6%;
+      background: linear-gradient(180deg, #0f0203 0%, #1c0507 100%);
+      text-align: center;
+      position: relative;
+      z-index: 11;
+    }
+
+    .contact-box {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(58, 13, 16, 0.6) 0%, rgba(28, 5, 7, 0.8) 100%);
+      border: 2px solid rgba(244, 200, 135, 0.15);
+      border-radius: 16px;
+      padding: 50px 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+
+    .contact-box h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-box p {
+      font-size: 1.05rem;
+      color: var(--bone-dim);
+      line-height: 1.7;
+      margin-bottom: 35px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact {
+      padding: 15px 40px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+    }
+
+    .btn-livechat {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-livechat:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-telegram {
+      background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
+    }
+
+    .btn-telegram:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+    }
+
+    /* ===== FOOTER LAYOUT ========================== */
+    footer {
+      background: #090102;
+      padding: 50px 6% 30px;
+      text-align: center;
+      border-top: 1px solid rgba(244,200,135,0.05);
+      position: relative;
+      z-index: 11;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--bone-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: rgba(246, 237, 224, 0.35);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== POP-UP PROMO ===== */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 3, 5, 0.85); 
+      backdrop-filter: blur(8px); 
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .popup-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px; 
+      background: var(--maroon-deep);
+      border-radius: 16px;
+      padding: 8px;
+      border: 3px solid transparent;
+      background-image: linear-gradient(var(--maroon-deep), var(--maroon-deep)), 
+                        linear-gradient(135deg, #ffd700, #b8860b, #ffffff, #ffd700);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: 0 0 50px rgba(244, 200, 135, 0.45), 0 25px 60px rgba(0, 0, 0, 0.9);
+      transform: scale(0.7);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .popup-overlay.active .popup-container {
+      transform: scale(1);
+    }
+
+    .popup-close-btn {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--red-bright), var(--red));
+      border: 2px solid var(--gold);
+      color: var(--bone);
+      font-size: 22px;
+      font-weight: 700;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(232, 35, 47, 0.6);
+      transition: all 0.2s ease;
+      z-index: 10001;
+    }
+
+    .popup-close-btn:hover {
+      transform: scale(1.1) rotate(90deg);
+      background: var(--gold);
+      color: var(--maroon-deep);
+    }
+
+    .popup-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 10px;
+    }
+
+    .popup-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .popup-action-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 100%);
+      color: var(--bone);
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(232, 35, 47, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .popup-action-btn:hover {
+      box-shadow: 0 0 25px rgba(232, 35, 47, 0.8);
+      transform: translateY(-2px);
+    }
+
+    /* KONDISI RESPONSIF */
+    @media (max-width: 992px) {
+      .hero-main-layout { grid-template-columns: 1fr; gap: 40px; }
+      .hero-right-content { justify-content: center; }
+      .promo-image-frame { max-width: 100%; }
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 10px 4%; }
+      .main-logo { height: 40px; }
+      nav ul { gap: 8px; }
+      nav a { font-size: 0.75rem; padding: 6px 12px; }
+      .cta-row { justify-content: center; }
+      .quick-access-tag { justify-content: center; }
+      .popup-container { max-width: 90%; }
+      .popup-close-btn { top: -12px; right: -12px; width: 32px; height: 32px; font-size: 18px; }
+      .sports-widget-container { margin: 25px auto 5px auto; }
+      .live-score { font-size: 1.8rem; }
+      .btn-bet-now { padding: 6px 20px; font-size: 1rem; }
+      .team-flag { width: 50px; height: 50px; }
+      .tournament-title { font-size: 1rem; }
+    }
+
+    @media (max-width: 500px) {
+      .game-categories-badge {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .game-frame {
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="brand-container">
-    <div class="brand">WAWASAN<span>4D</span></div>
-  </div>
+<a href="#" class="logo-container">
+  <img src="logo.png.png" alt="WAWASAN4D Logo" class="main-logo">
+</a>
   <nav>
     <ul>
-      <li><a href="https://wawasanlagi.com" class="nav-btn-highlight">DAFTAR</a></li>
+      <li><a href="#daftar" class="nav-btn-highlight">DAFTAR</a></li>
       <li><a href="#promosi" class="nav-link">PROMO</a></li>
       <li><a href="https://one.wawasanpasti.com/" class="nav-link" target="_blank">RTP</a></li>
     </ul>
   </nav>
 </header>
+
 <div class="popup-overlay" id="promoPopup">
   <div class="popup-container">
     <button class="popup-close-btn" id="closePopupBtn">&times;</button>
     <div class="popup-content">
-      <img src="gambar 3.jpg" alt="Promo Wawasan4D QRIS" class="popup-img">
+      <img src="gambar 8.jpg" alt="Promo Wawasan4D QRIS" class="popup-img">
       <a href="https://wawasanlagi.com" target="_blank" class="popup-action-btn">DAFTAR</a>
       <a href="https://wawasanlagi.com" target="_blank" class="popup-action-btn btn">LOGIN</a>
     </div>
@@ -1013,45 +1236,42 @@
 
       <h1>WAWASAN4D</h1>
       <div class="signature">Situs Gacor Hubungan Digital Anda</div>
-      <!-- Bingkai Mewah Kategori Game -->
-<div class="game-frame">
-  <div class="game-categories-badge">
-    <span>🎰 SLOT</span>
-    <span>🔮 TOGEL</span>
-    <span>🃏 CASINO</span>
-    <span>🃏 POKER</span>
-  </div>
-</div>
+      
+      <div class="game-frame">
+        <div class="game-categories-badge">
+          <span>🎰 SLOT</span>
+          <span>🔮 TOGEL</span>
+          <span>🃏 CASINO</span>
+          <span>🃏 POKER</span>
+        </div>
+      </div>
+
       <p class="hero-sub">
         Nikmati hiburan berkelas, performa engine yang stabil, serta sistem tercanggih 
         yang dirancang khusus untuk menjamin kenyamanan dan keseruan bermain tanpa batas setiap hari WAWASAN4D.
       </p>
     </div>
 
-<div class="hero-right-content">
-  <div class="promo-image-frame">
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="gambar 4.jpg" alt="Promo 1"></div>
-        <div class="swiper-slide"><img src="gambar 5.jpg" alt="Promo 2"></div>
-        <div class="swiper-slide"><img src="gambar 6.jpg" alt="Promo 3"></div>
-        <div class="swiper-slide"><img src="gambar 7.jpg" alt="Promo 4"></div>
+    <div class="hero-right-content">
+      <div class="promo-image-frame">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="gambar 3.jpg" alt="Promo WAWASAN4D"></div>
+            <div class="swiper-slide"><img src="gambar 4.jpg" alt="Promo WAWASAN4D"></div>
+            <div class="swiper-slide"><img src="gambar 5.jpg" alt="Promo WAWASAN4D"></div>
+            <div class="swiper-slide"><img src="gambar 6.jpg" alt="Promo WAWASAN4D"></div>
+            <div class="swiper-slide"><img src="gambar 7.jpg" alt="Promo WAWASAN4D"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
-      <!-- Tombol Navigasi Manual -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <!-- Indikator di bawah -->
-      <div class="swiper-pagination"></div>
     </div>
   </div>
-</div>
 
-  <div class="info-card">
-    <div class="running-text-container">
-      <div class="marquee-wrapper">
-        <div class="marquee-content">
-          <span>🟢 BANK ONLINE: BCA, MANDIRI, BRI, BNI, DANAMON, SEABANK • E-WALLET ACTIVE: DANA, OVO, GOPAY, LINKAJA 🟢</span>
-        </div>
+  <div class="marquee-frame">
+    <div class="marquee-container">
+      <div class="marquee-content">
+        🟢 BANK ONLINE: BCA, MANDIRI, BRI, BNI, DANAMON, SEABANK • E-WALLET ACTIVE: DANA, OVO, GOPAY, LINKAJA 🟢
       </div>
     </div>
   </div>
@@ -1063,6 +1283,90 @@
       Nikmati kecepatan proses deposit dan withdraw super cepat yang didukung oleh bank lokal ternama serta e-wallet terpercaya tanpa offline hanya di WAWASAN4D.
     </p>
   </div>
+
+<div class="sports-widget-container">
+  <div class="swiper swiper-sports">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <div class="match-card" id="match-1">
+          <div class="match-header">
+            <div class="tournament-title">E-FOOTBALL F24 INTERNATIONAL FRIENDLY</div>
+            <div class="match-live-indicator"><span class="live-dot"></span> MENIT <span class="match-minute">34</span>'</div>
+          </div>
+          <div class="match-body">
+            <div class="team-side">
+              <div class="team-flag"><img src="https://flagcdn.com/w80/pt.png" alt="e-Portugal"></div>
+              <div class="team-name">e-Portugal</div>
+              <div class="odds-value font-gold">0.75 <span class="odds-sub">0.53</span></div>
+            </div>
+            <div class="score-center">
+              <div class="live-score"><span class="score-home">1</span> : <span class="score-away">0</span></div>
+              <a href="https://wawasanlagi.com" target="_blank" class="btn-bet-now">BET NOW</a>
+            </div>
+            <div class="team-side">
+              <div class="team-flag"><img src="https://flagcdn.com/w80/gb-wls.png" alt="e-Wales"></div>
+              <div class="team-name">e-Wales</div>
+              <div class="odds-value font-yellow">-0.75 <span class="odds-sub">-0.77</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="match-card" id="match-2">
+          <div class="match-header">
+            <div class="tournament-title">AFC ASIAN CUP QUALIFIERS</div>
+            <div class="match-live-indicator"><span class="live-dot"></span> MENIT <span class="match-minute">12</span>'</div>
+          </div>
+          <div class="match-body">
+            <div class="team-side">
+              <div class="team-flag"><img src="https://flagcdn.com/w80/id.png" alt="e-Indonesia"></div>
+              <div class="team-name">e-Indonesia</div>
+              <div class="odds-value font-gold">0.25 <span class="odds-sub">0.88</span></div>
+            </div>
+            <div class="score-center">
+              <div class="live-score"><span class="score-home">0</span> : <span class="score-away">0</span></div>
+              <a href="https://wawasanlagi.com" target="_blank" class="btn-bet-now">BET NOW</a>
+            </div>
+            <div class="team-side">
+              <div class="team-flag"><img src="https://flagcdn.com/w80/jp.png" alt="e-Japan"></div>
+              <div class="team-name">e-Japan</div>
+              <div class="odds-value font-yellow">-0.25 <span class="odds-sub">-0.92</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="match-card" id="match-3">
+          <div class="match-header">
+            <div class="tournament-title">CONMEBOL WORLD CUP QUALIFIERS</div>
+            <div class="match-live-indicator"><span class="live-dot"></span> MENIT <span class="match-minute">78</span>'</div>
+          </div>
+          <div class="match-body">
+            <div class="team-side">
+              <div class="team-flag"><img src="https://flagcdn.com/w80/br.png" alt="e-Brazil"></div>
+              <div class="team-name">e-Brazil</div>
+              <div class="odds-value font-gold">0.00 <span class="odds-sub">1.02</span></div>
+            </div>
+            <div class="score-center">
+              <div class="live-score"><span class="score-home">2</span> : <span class="score-away">2</span></div>
+              <a href="https://wawasanlagi.com" target="_blank" class="btn-bet-now">BET NOW</a>
+            </div>
+            <div class="team-side">
+              <div class="team-flag"><img src="https://flagcdn.com/w80/ar.png" alt="e-Argentina"></div>
+              <div class="team-name">e-Argentina</div>
+              <div class="odds-value font-yellow">0.00 <span class="odds-sub">-1.05</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination sports-pagination"></div>
+  </div>
+</div>
 </section>
 
 <div class="stripe-divider" role="presentation"></div>
@@ -1073,8 +1377,7 @@
     <h2>BONUS & PROMOSI TERBAIK</h2>
   </div>
 
-<div class="bonus-grid">
-    <!-- Kartu 1: Welcome Bonus -->
+  <div class="bonus-grid">
     <div class="bonus-card">
         <div>
             <span class="bonus-tag">WELCOME BONUS</span>
@@ -1084,7 +1387,6 @@
         <a href="https://wawasanlagi.com" class="bonus-btn" target="_blank">KLAIM SEKARANG</a>
     </div>
 
-    <!-- Kartu 2: Rollingan Slot -->
     <div class="bonus-card">
         <div>
             <span class="bonus-tag">WEEK BONUS</span>
@@ -1094,7 +1396,6 @@
         <a href="https://wawasanlagi.com" class="bonus-btn" target="_blank">KLAIM SEKARANG</a>
     </div>
 
-    <!-- Kartu 3: Rollingan Casino -->
     <div class="bonus-card">
         <div>
             <span class="bonus-tag">WEEK BONUS</span>
@@ -1104,7 +1405,6 @@
         <a href="https://wawasanlagi.com" class="bonus-btn" target="_blank">KLAIM SEKARANG</a>
     </div>
 
-    <!-- Kartu 4: Cashback Tembak Ikan -->
     <div class="bonus-card">
         <div>
             <span class="bonus-tag">CASHBACK WEEK</span>
@@ -1114,7 +1414,6 @@
         <a href="https://wawasanlagi.com" class="bonus-btn" target="_blank">KLAIM SEKARANG</a>
     </div>
 
-    <!-- Kartu 5: Cashback Sportbook (Diletakkan di sini) -->
     <div class="bonus-card">
         <div>
             <span class="bonus-tag">CASHBACK WEEK</span>
@@ -1123,7 +1422,7 @@
         </div>
         <a href="https://wawasanlagi.com" class="bonus-btn" target="_blank">KLAIM SEKARANG</a>
     </div>
-</div>
+  </div>
 </section>
 
 <section class="features-section">
@@ -1163,12 +1462,10 @@
   <div class="contact-box">
     <h3>BUTUH BANTUAN?</h3>
     <p>Tim layanan pelanggan kami yang berpengalaman dan ramah siap menjawab semua pertanyaan atau kendala transaksi Anda dalam hitungan detik.</p>
-<div class="contact-buttons">
-    <a href="https://wawasanlagi.com" class="btn-contact btn-livechat" target="_blank">💬 LIVE CHAT 24 JAM</a>
-    
-    <!-- Link Telegram diperbarui di sini -->
-    <a href="https://t.me/bocoranslotmaxwinwwsn" class="btn-contact btn-telegram" target="_blank">✈️ TELEGRAM RESMI</a>
-</div>
+    <div class="contact-buttons">
+      <a href="https://wawasanlagi.com" class="btn-contact btn-livechat" target="_blank">💬 LIVE CHAT 24 JAM</a>
+      <a href="https://t.me/bocoranslotmaxwinwwsn" class="btn-contact btn-telegram" target="_blank">✈️ TELEGRAM RESMI</a>
+    </div>
   </div>
 </section>
 
@@ -1186,52 +1483,96 @@
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // 1. Duplikasi teks berjalan bank agar mulus
-    const marqueeContainer = document.querySelector('.marquee-content');
-    if (marqueeContainer) {
-      marqueeContainer.innerHTML += marqueeContainer.innerHTML;
+  // 1. Inisialisasi Slider Otomatis untuk Widget Olahraga
+var swiperSports = new Swiper(".swiper-sports", {
+  spaceBetween: 20,
+  centeredSlides: true,
+  loop: true,
+  autoplay: {
+    delay: 4000, // Bergeser otomatis setiap 4 detik
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".sports-pagination",
+    clickable: true,
+  }
+});
+
+// 2. Logika Update Otomatis Real-time (Menit & Skor Acak)
+setInterval(function() {
+  // Ambil semua slide pertandingan yang sedang berjalan
+  const matches = document.querySelectorAll('.match-card');
+  
+  matches.forEach(match => {
+    const minuteElement = match.querySelector('.match-minute');
+    const homeScoreElement = match.querySelector('.score-home');
+    const awayScoreElement = match.querySelector('.score-away');
+    
+    let currentMinute = parseInt(minuteElement.innerText);
+    
+    // Tambah menit pertandingan secara natural
+    if (currentMinute < 90) {
+      currentMinute += 1;
+      minuteElement.innerText = currentMinute;
+    } else {
+      minuteElement.innerText = "1"; // Reset kembali ke menit 1 kalau sudah tembus 90 menit
+      homeScoreElement.innerText = "0";
+      awayScoreElement.innerText = "0";
     }
 
-    // 2. SISTEM POP-UP OTOMATIS (Muncul 1 Detik setelah page load)
-    const popup = document.getElementById('promoPopup');
-    const closeBtn = document.getElementById('closePopupBtn');
-
-    setTimeout(function() {
-      popup.classList.add('active');
-    }, 1000); // 1000ms = 1 Detik
-
-    // Fungsi menutup pop-up ketika tombol silang diklik
-    closeBtn.addEventListener('click', function() {
-      popup.classList.remove('active');
-    });
-
-    // Fungsi menutup pop-up ketika area luar gambar diklik
-    popup.addEventListener('click', function(e) {
-      if (e.target === popup) {
-        popup.classList.remove('active');
+    // Simulasi Gol: Berikan peluang acak kecil 2% skor berubah setiap siklus
+    if (Math.random() < 0.02 && currentMinute < 90) {
+      if (Math.random() > 0.5) {
+        let score = parseInt(homeScoreElement.innerText);
+        homeScoreElement.innerText = score + 1;
+      } else {
+        let score = parseInt(awayScoreElement.innerText);
+        awayScoreElement.innerText = score + 1;
       }
-    });
+    }
   });
-</script>
-  <script>
+}, 5000); // Mengecek dan memperbarui data secara dinamis setiap 5 detik
+  // Inisialisasi Slider Swiper
   var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     centeredSlides: true,
-    grabCursor: true, // Membuat kursor berubah jadi tangan saat di atas gambar
-    loop: true,       // Membuat slider berputar terus menerus
+    grabCursor: true, 
+    loop: true,       
     autoplay: {
-      delay: 3000,    // Ganti gambar setiap 3 detik
-      disableOnInteraction: false, // Tetap otomatis setelah digeser manual
+      delay: 3000,
+      disableOnInteraction: false, 
     },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    }
+  });
+
+  // Skrip Marquee & Pop-up Kontrol
+  document.addEventListener("DOMContentLoaded", function() {
+    const marqueeContainer = document.querySelector('.marquee-content');
+    if (marqueeContainer) {
+      marqueeContainer.innerHTML += " &bull; " + marqueeContainer.innerHTML;
+    }
+
+    const popup = document.getElementById('promoPopup');
+    const closeBtn = document.getElementById('closePopupBtn');
+
+    if (popup && closeBtn) {
+      setTimeout(function() {
+        popup.classList.add('active');
+      }, 1000); 
+
+      closeBtn.addEventListener('click', function() {
+        popup.classList.remove('active');
+      });
+
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+          popup.classList.remove('active');
+        }
+      });
+    }
   });
 </script>
 
