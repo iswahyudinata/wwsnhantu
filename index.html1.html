@@ -11,6 +11,73 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
+  /* Bingkai Utama Kategori Game */
+.game-frame {
+  background: linear-gradient(135deg, rgba(28, 5, 7, 0.9) 0%, rgba(15, 2, 4, 0.95) 100%);
+  border: 1.5px solid rgba(244, 200, 135, 0.4); /* Border emas transparan */
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin: 20px 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 550px; /* Batas lebar agar rapi */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(244, 200, 135, 0.05);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+/* Efek Glow pada Bingkai Saat Kursor Mengarah (Hover) */
+.game-frame:hover {
+  border-color: rgba(244, 200, 135, 0.8);
+  box-shadow: 0 0 20px rgba(244, 200, 135, 0.25), 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Susunan Item di Dalam Bingkai */
+.game-categories-badge {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Tombol Kategori Game */
+.game-categories-badge span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 18px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  flex: 1; /* Membuat ukuran kotak sama rata */
+  text-align: center;
+  min-width: 90px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efek Sorot Item saat Hover */
+.game-categories-badge span:hover {
+  color: #1c0507; /* Warna gelap teks saat aktif */
+  background: linear-gradient(135deg, #f4c887 0%, #d4af37 100%); /* Gradasi Emas */
+  border-color: #f4c887;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+  font-weight: bold;
+}
+
+/* Optimasi Tampilan HP (Mobile) */
+@media (max-width: 500px) {
+  .game-categories-badge {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi jadi 2 baris 2 kolom di HP */
+    gap: 10px;
+  }
+  .game-frame {
+    padding: 12px;
+  }
+}
   .swiper {
   width: 100%;
   height: auto;
@@ -946,6 +1013,15 @@
 
       <h1>WAWASAN4D</h1>
       <div class="signature">Situs Gacor Hubungan Digital Anda</div>
+      <!-- Bingkai Mewah Kategori Game -->
+<div class="game-frame">
+  <div class="game-categories-badge">
+    <span>🎰 SLOT</span>
+    <span>🔮 TOGEL</span>
+    <span>🃏 CASINO</span>
+    <span>🃏 POKER</span>
+  </div>
+</div>
       <p class="hero-sub">
         Nikmati hiburan berkelas, performa engine yang stabil, serta sistem tercanggih 
         yang dirancang khusus untuk menjamin kenyamanan dan keseruan bermain tanpa batas setiap hari WAWASAN4D.
